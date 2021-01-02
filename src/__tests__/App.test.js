@@ -18,7 +18,7 @@ describe('App', () => {
     </Provider>,
   );
 
-  test('should render home page', () => {
+  test('should render App', () => {
     expect(page).toBeTruthy();
     expect(page).not.toBeFalsy();
     expect(page).toMatchSnapshot();
