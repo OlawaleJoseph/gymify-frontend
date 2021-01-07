@@ -1,0 +1,26 @@
+@import './variables.scss';
+
+.menuitem {
+  font-size: 22px;
+}
+
+.menuitem__link {
+  width: 210px;
+  color: $text-color;
+
+  svg {
+    margin-right: 10px;
+    color: #585280;
+  }
+
+  &:hover {
+    color: #585280;
+    font-weight: bolder;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .menuitem {
+    font-size: 20px;
+  }
+}

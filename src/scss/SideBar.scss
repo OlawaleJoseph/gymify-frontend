@@ -1,0 +1,60 @@
+@import './variables.scss';
+
+.sidebar {
+  background-color: #f8f8f8;
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  width: 100%;
+}
+
+.sidebar__switch {
+  width: min-content;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5em;
+  z-index: 1000;
+  transition: all 0.5s;
+}
+
+.sidebar__open {
+  left: auto;
+  right: 10px;
+}
+
+.sidebar__nav {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  padding-top: 7em;
+  background-color: #f8f8f8;
+  z-index: 100;
+  transition: all 0.4s ease-in;
+  transform: translateX(-100%);
+}
+
+.sidebar__active {
+  transform: translateX(0);
+}
+
+.sidebar__profileImage {
+  background: white;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .sidebar {
+    position: relative;
+    width: clamp(200px, 300px, 30%);
+  }
+
+  .sidebar__switch {
+    display: none;
+  }
+
+  .sidebar__nav {
+    position: relative;
+    transform: translateX(0);
+  }
+}
