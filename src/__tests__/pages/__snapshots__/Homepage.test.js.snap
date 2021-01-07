@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Homepage Should render Homepage 1`] = `ShallowWrapper {}`;
-
-exports[`Homepage Should render Homepage 2`] = `ShallowWrapper {}`;
-
-exports[`Homepage Should render nav 1`] = `ShallowWrapper {}`;

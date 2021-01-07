@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BgImage from '../assets/images/background.jpg';
 
-export const Hompage = () => (
+const Homepage = () => (
   <div className="homepage">
     <nav className="d-flex px-5 justify-content-between align-items-center homepage__nav">
       <Link className="logo" to="/">GYMIFY</Link>
@@ -21,4 +21,4 @@ export const Hompage = () => (
   </div>
 );
 
-export default Hompage;
+export default Homepage;
