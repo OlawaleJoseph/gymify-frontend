@@ -1,11 +1,12 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import thunk from 'redux-thunk';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Enzyme, { mount, shallow } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
+import { act } from 'react-dom/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -43,3 +44,12 @@ export const renderWrapper = (Element, props = {}) => {
   );
   return { getByLabelText, container };
 };
+
+export const changeInputText = async (element, value = '') => {
+  await act(async () => {
+    fireEvent.change(element, { target: { value } });
+    fireEvent.blur(element);
+  });
+};
+
+export const getById = (container, id) => container.querySelector(`#${id}`);

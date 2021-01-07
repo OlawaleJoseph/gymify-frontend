@@ -170,7 +170,7 @@ export const Register = () => {
         </div>
         <div className="form-group">
           <span>Confirm Pasword</span>
-          <input ref={register} type="password" className="form-control" id="confrimPassword" name="confirmPassword" />
+          <input ref={register} type="password" className="form-control" id="confirmPassword" name="confirmPassword" />
           <small className="text-danger">{errors?.confirmPassword?.message}</small>
         </div>
 
