@@ -8,7 +8,7 @@ const Homepage = () => (
       <Link className="logo" to="/">GYMIFY</Link>
       <div className="d-flex">
         <Link className="mr-4 btn btn-info" to="/register">Register</Link>
-        <Link className="btn btn-info" to="/sign_in">Login</Link>
+        <Link className="btn btn-info" to="/login">Login</Link>
       </div>
     </nav>
     <main className="px-5 d-flex justify-content-start align-items-center homepage__main" style={{ backgroundImage: `url(${BgImage})` }}>

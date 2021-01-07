@@ -196,7 +196,7 @@ export const Register = () => {
             </div>
           </div>
         </div>
-        <button type="submit" className="btn btn-primary" disabled={errors && Object.keys(errors).length}>Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </Form>
     </FormContainer>
   );
