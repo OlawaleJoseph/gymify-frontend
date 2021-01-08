@@ -5,3 +5,5 @@ export const storeHeaders = headerObj => (
 );
 
 export const getHeaders = () => JSON.parse(localStorage.getItem(localStorageHeadersKey));
+
+export const removeHeaders = () => localStorage.removeItem(localStorageHeadersKey);

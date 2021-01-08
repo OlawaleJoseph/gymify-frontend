@@ -7,7 +7,7 @@ import '../scss/Dashboard.scss';
 const Dashboard = () => (
   <div className="dashboard d-md-flex m-0">
     <SideBar />
-    <div>
+    <div className="w-100 px-5">
       <Nav />
       <Main />
     </div>

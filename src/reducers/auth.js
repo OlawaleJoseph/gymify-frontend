@@ -39,11 +39,16 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     },
+
+    logout(state) {
+      state.user = null;
+      state.isLoading = false;
+    },
   },
 });
 
 export const {
-  setHeaders, authFail, authStart, authSuccess,
+  setHeaders, authFail, authStart, authSuccess, logout,
 } = authSlice.actions;
 
 export default authSlice.reducer;

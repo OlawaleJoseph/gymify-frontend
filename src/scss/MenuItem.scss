@@ -10,11 +10,11 @@
 
   svg {
     margin-right: 10px;
-    color: #585280;
+    color: $secondary-color;
   }
 
   &:hover {
-    color: #585280;
+    color: $secondary-color;
     font-weight: bolder;
   }
 }
