@@ -1,9 +1,11 @@
 /* eslint-disable no-param-reassign */
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { authSuccess, logout } from '../reducers/auth';
+import { authSuccess, logout, setUser } from '../reducers/auth';
 import { storeHeaders, getHeaders, removeHeaders } from './common';
-import { loginPath, baseUrl, logoutUrl } from './constants';
+import {
+  loginPath, baseUrl, logoutUrl, userUrl,
+} from './constants';
 
 const instance = axios.create({
   baseURL: baseUrl,
@@ -26,10 +28,31 @@ instance.interceptors.request.use(
   error => Promise.reject(error),
 );
 
+const handleError = error => {
+  if (error?.response?.status === 401) {
+    error.response.data.errors.forEach(msg => toast.error(msg));
+  } else {
+    toast.error('Server error. Plaease try again later');
+  }
+};
+
+export const getUser = async () => {
+  const { data } = await instance.get(userUrl);
+  return data;
+};
+
+export const updateUser = () => async dispatch => {
+  try {
+    const user = await getUser();
+    dispatch(setUser(user));
+  } catch (error) {
+    handleError(error);
+  }
+};
+
 export const login = userinfo => async dispatch => {
   try {
     const { data, headers } = await instance.post(loginPath, userinfo);
-    dispatch(authSuccess(data.data));
     const {
       uid, client, authorization, expiry,
     } = headers;
@@ -38,13 +61,10 @@ export const login = userinfo => async dispatch => {
     storeHeaders({
       uid, client, authorization, expiry, tokenType,
     });
+    dispatch(authSuccess());
     toast.success(`Welcome ${data.data.username}`);
   } catch (error) {
-    if (error.response.status === 401) {
-      error.response.data.errors.forEach(msg => toast.error(msg));
-    } else {
-      toast.error('Server error. Plaease try again later');
-    }
+    handleError(error);
   }
 };
 

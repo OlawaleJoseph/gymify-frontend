@@ -4,33 +4,17 @@ import { createSlice } from '@reduxjs/toolkit';
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    token: null,
-    client: null,
-    expiry: null,
-    uid: null,
     user: null,
     isLoading: false,
     error: null,
   },
   reducers: {
-    setHeaders(state, { payload }) {
-      const {
-        token, uid, client, expiry,
-      } = payload;
-
-      state.token = token;
-      state.uid = uid;
-      state.client = client;
-      state.expiry = expiry;
-    },
-
     authStart(state) {
       state.isLoading = true;
     },
 
-    authSuccess(state, { payload }) {
+    authSuccess(state) {
       state.isLoading = false;
-      state.user = payload;
       state.error = null;
     },
 
@@ -38,6 +22,12 @@ const authSlice = createSlice({
       state.user = null;
       state.isLoading = false;
       state.error = payload;
+    },
+
+    setUser(state, { payload }) {
+      state.user = payload;
+      state.isLoading = false;
+      state.error = null;
     },
 
     logout(state) {
@@ -48,7 +38,7 @@ const authSlice = createSlice({
 });
 
 export const {
-  setHeaders, authFail, authStart, authSuccess, logout,
+  setHeaders, authFail, authStart, authSuccess, logout, setUser,
 } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -30,7 +30,7 @@ const SideBar = () => {
           <img className="sidebar__profileImage" src="https://images.unsplash.com/photo-1610046855622-2e20208553c1?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="User Profile" />
           <h4 className="pt-2 text-muted">John Doe</h4>
         </div>
-        <ul className="d-flex flex-column align-items-center w-100">
+        <ul className="d-flex flex-column align-items-center w-100 mt-4">
           <MenuItem name="Dashboard" url="/dashboard" Icon={IoGridOutline} />
           <MenuItem name="Trainers" url="/dashboard" Icon={MdPeopleOutline} />
           <MenuItem name="Appointments" url="/dashboard" Icon={CgGym} />

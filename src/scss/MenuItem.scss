@@ -1,11 +1,11 @@
 @import './variables.scss';
 
 .menuitem {
-  font-size: 22px;
+  font-size: 17px;
 }
 
 .menuitem__link {
-  width: 210px;
+  width: 165px;
   color: $text-color;
 
   svg {
@@ -16,11 +16,5 @@
   &:hover {
     color: $secondary-color;
     font-weight: bolder;
-  }
-}
-
-@media (min-width: $breakpoint-tablet) {
-  .menuitem {
-    font-size: 20px;
   }
 }

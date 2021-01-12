@@ -5,3 +5,5 @@ export const signUpPath = '/auth';
 export const loginPath = '/auth/sign_in';
 
 export const logoutUrl = '/auth/sign_out';
+
+export const userUrl = '/me';

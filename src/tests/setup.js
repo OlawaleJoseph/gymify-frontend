@@ -12,7 +12,19 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const middleware = [thunk];
 const mockStore = configureMockStore(middleware);
-const store = mockStore();
+const store = mockStore({
+  auth: {
+    user: {
+      appointments: [],
+      gym_sessions: [],
+      id: 'id-01',
+      email: 'test@mail.com',
+      username: 'test',
+    },
+  },
+  isLoading: false,
+  error: null,
+});
 
 export const shallowRender = (Element, props = {}) => (
   shallow(

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, connect, useSelector } from 'react-redux';
+import { useDispatch, connect } from 'react-redux';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -8,6 +8,7 @@ import FormContainer from '../containers/FormContainer';
 import Form from '../components/Form';
 import { authStart } from '../reducers/auth';
 import { login } from '../utils/api';
+import { getHeaders } from '../utils/common';
 
 const schema = yup.object().shape({
   email: yup.string().email('Invalid email').required('Email is required'),
@@ -21,9 +22,8 @@ const Login = () => {
   });
   const dispatch = useDispatch();
 
-  const user = useSelector(state => state.auth?.user);
-
-  if (user) return <Redirect to="/dashboard" />;
+  const headers = getHeaders();
+  if (headers && Object.keys(headers).length) return <Redirect to="/dashboard" />;
 
   const handleOnsubmit = async userObj => {
     const { email, password } = userObj;
@@ -33,7 +33,6 @@ const Login = () => {
     userData.append('email', email);
     userData.append('password', password);
     dispatch(authStart());
-
     await dispatch(login(userData));
   };
   return (
