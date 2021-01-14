@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Trainer from '../components/TrainerCard';
 import { gettRequest } from '../utils/api';
 import { trainersUrl } from '../utils/constants';
+import { getTrainers } from '../reducers/trainers';
 
 const Trainers = () => {
   const [trainers, setTrainers] = useState([]);
+  const dispatch = useDispatch();
   useEffect(() => {
-    const getTrainers = async () => {
+    const fetchTrainers = async () => {
       const { data } = await gettRequest(trainersUrl);
+      dispatch(getTrainers(data));
       setTrainers(data);
     };
-    getTrainers();
+    fetchTrainers();
   }, []);
 
   return (
