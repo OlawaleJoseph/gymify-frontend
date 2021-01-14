@@ -1,4 +1,4 @@
-import Trainer from '../../components/Trainer';
+import Trainer from '../../components/TrainerCard';
 import { mountRender } from '../setup';
 
 describe('Side Bar', () => {

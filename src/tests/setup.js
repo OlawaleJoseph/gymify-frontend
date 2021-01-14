@@ -36,6 +36,12 @@ export const shallowRender = (Element, props = {}) => (
   )
 );
 
+export const shallowRenderWithoutProvider = (Element, props = {}) => (
+  shallow(
+    <Element {...props} />,
+  )
+);
+
 export const mountRender = (Element, props = {}) => (
   mount(
     <Provider store={store}>

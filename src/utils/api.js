@@ -84,7 +84,7 @@ export const postRequest = async (url, body, header) => {
   return { data, headers };
 };
 
-export const gettRequest = async (url, body, header) => {
-  const { data, headers } = await instance.post(url, body, { headers: header });
+export const gettRequest = async url => {
+  const { data, headers } = await instance.get(url);
   return { data, headers };
 };

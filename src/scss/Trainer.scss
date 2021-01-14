@@ -32,6 +32,17 @@
     transition: all linear 0.25s;
   }
 
+  .profile-speciality {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: capitalize;
+    transition: all linear 0.25s;
+  }
+
   &:hover img {
     filter: grayscale(100%);
   }
@@ -42,5 +53,9 @@
 
   &:hover .profile-username {
     bottom: 60px;
+  }
+
+  &:hover .profile-speciality {
+    bottom: 40px;
   }
 }

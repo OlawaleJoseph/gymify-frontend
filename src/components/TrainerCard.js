@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../scss/Trainer.scss';
 import { Link } from 'react-router-dom';
 
-const Trainer = ({
+const TrainerCard = ({
   id, imgUrl, firstName, lastName, username, speciality,
 }) => (
   <Link to={`/trainers/${id}`}>
@@ -16,7 +16,7 @@ const Trainer = ({
   </Link>
 );
 
-Trainer.propTypes = {
+TrainerCard.propTypes = {
   id: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
   firstName: PropTypes.string.isRequired,
@@ -25,4 +25,4 @@ Trainer.propTypes = {
   speciality: PropTypes.string.isRequired,
 };
 
-export default Trainer;
+export default TrainerCard;
