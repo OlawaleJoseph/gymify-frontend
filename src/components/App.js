@@ -5,7 +5,7 @@ import Homepage from '../pages/Homepage';
 import Register from '../pages/Register';
 import Dashboard from '../pages/Dashboard';
 import Main from './Main';
-import Trainer from '../pages/Trainer';
+import Trainers from '../containers/Trainers';
 import Login from '../pages/Login';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/login" component={Login} />
       </Switch>
       <Dashboard url="/dashboard" Component={Main} />
-      <Dashboard url="/trainer" Component={Trainer} />
+      <Dashboard url="/trainers" Component={Trainers} />
     </Router>
   );
 }

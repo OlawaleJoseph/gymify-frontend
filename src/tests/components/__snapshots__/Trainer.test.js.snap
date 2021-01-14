@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Side Bar should re 1`] = `ReactWrapper {}`;
+
+exports[`Side Bar should render a link to trainer id 1`] = `ReactWrapper {}`;
+
+exports[`Side Bar should render a link with trainer id as params 1`] = `ReactWrapper {}`;
+
+exports[`Side Bar should render menu item 1`] = `ReactWrapper {}`;
+
+exports[`Side Bar should render trainer 1`] = `ReactWrapper {}`;
+
+exports[`Side Bar should render trainer 2`] = `ReactWrapper {}`;

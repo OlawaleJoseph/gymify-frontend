@@ -32,7 +32,7 @@ const SideBar = () => {
         </div>
         <ul className="d-flex flex-column align-items-center w-100 mt-4">
           <MenuItem name="Dashboard" url="/dashboard" Icon={IoGridOutline} />
-          <MenuItem name="Trainers" url="/dashboard" Icon={MdPeopleOutline} />
+          <MenuItem name="Trainers" url="/trainers" Icon={MdPeopleOutline} />
           <MenuItem name="Appointments" url="/dashboard" Icon={CgGym} />
           <MenuItem name="Group Sessions" url="/dashboard" Icon={RiTeamLine} />
         </ul>

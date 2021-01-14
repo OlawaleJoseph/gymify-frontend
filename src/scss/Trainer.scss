@@ -1,0 +1,46 @@
+.profile-card {
+  max-width: 350px;
+  background-color: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 10px;
+
+  img {
+    transition: all linear 0.25s;
+  }
+
+  .profile-name {
+    position: absolute;
+    left: 30px;
+    bottom: 70px;
+    font-size: 30px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    transition: all linear 0.25s;
+  }
+
+  .profile-username {
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    color: #fff;
+    font-size: 13px;
+    transition: all linear 0.25s;
+  }
+
+  &:hover img {
+    filter: grayscale(100%);
+  }
+
+  &:hover .profile-name {
+    bottom: 80px;
+  }
+
+  &:hover .profile-username {
+    bottom: 60px;
+  }
+}
