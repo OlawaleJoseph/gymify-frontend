@@ -79,8 +79,8 @@ export const signOut = () => async dispatch => {
   }
 };
 
-export const postRequest = async (url, body, header) => {
-  const { data, headers } = await instance.post(url, body, { headers: header });
+export const postRequest = async (url, body) => {
+  const { data, headers } = await instance.post(url, body);
   return { data, headers };
 };
 

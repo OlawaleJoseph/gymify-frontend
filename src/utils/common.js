@@ -53,3 +53,5 @@ export const getLatestSession = arr => {
   }
   return latestSession;
 };
+
+export const timeZone = () => Intl.DateTimeFormat().resolvedOptions().timeZone;
