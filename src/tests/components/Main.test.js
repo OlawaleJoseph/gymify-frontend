@@ -1,5 +1,6 @@
 import Main from '../../components/Main';
 import { mountRender } from '../setup';
+// import 'jest-canvas-mock';
 
 describe('Main', () => {
   beforeEach(() => {

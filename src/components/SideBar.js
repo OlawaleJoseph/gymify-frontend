@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { IoGridOutline } from 'react-icons/io5';
 import { MdPeopleOutline } from 'react-icons/md';
 import { CgGym } from 'react-icons/cg';
-import { RiTeamLine } from 'react-icons/ri';
 import { GrClose } from 'react-icons/gr';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import MenuItem from './MenuItem';
@@ -28,13 +27,12 @@ const SideBar = () => {
       <div className={`d-flex flex-column align-items-center sidebar__nav ${open ? 'sidebar__active' : ''}`}>
         <div className="d-flex flex-column align-items-center">
           <img className="sidebar__profileImage" src="https://images.unsplash.com/photo-1610046855622-2e20208553c1?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="User Profile" />
-          <h4 className="pt-2 text-muted">John Doe</h4>
+          <h4 className="pt-2 text-white">John Doe</h4>
         </div>
-        <ul className="d-flex flex-column align-items-center w-100 mt-4">
+        <ul className="d-flex flex-column align-items-center w-100 mt-5">
           <MenuItem name="Dashboard" url="/dashboard" Icon={IoGridOutline} />
           <MenuItem name="Trainers" url="/trainers" Icon={MdPeopleOutline} />
-          <MenuItem name="Appointments" url="/dashboard" Icon={CgGym} />
-          <MenuItem name="Group Sessions" url="/dashboard" Icon={RiTeamLine} />
+          <MenuItem name="Appointments" url="/appointments" Icon={CgGym} />
         </ul>
       </div>
     </div>

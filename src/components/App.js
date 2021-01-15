@@ -8,6 +8,7 @@ import Main from './Main';
 import Trainers from '../containers/Trainers';
 import Login from '../pages/Login';
 import Trainer from '../pages/Trainer';
+import Appointments from '../pages/Appointments';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Dashboard url="/dashboard" Component={Main} />
       <Dashboard url="/trainers" Component={Trainers} />
       <Dashboard url="/trainers/:id" Component={Trainer} />
+      <Dashboard url="/appointments" Component={Appointments} />
     </Router>
   );
 }

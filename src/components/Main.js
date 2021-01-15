@@ -62,16 +62,12 @@ const Main = () => {
                   <td>{title}</td>
                   <td>{description}</td>
                   <td>{formatDurationOutput(duration)}</td>
-                  <td>
-                    {(Date.parse(start_time) - Date.now()) > 0
-                      ? <span className="text-success">Active</span>
-                      : <span className="text-muted">Finished</span>}
-                  </td>
-                  <td>
-                    {(Date.parse(start_time) - Date.now()) > 0
-                      ? <Timer timeFrame={(Date.parse(new Date(start_time)) - Date.now())} />
-                      : ''}
-                  </td>
+                  {(Date.parse(start_time) - Date.now()) > 0
+                    ? <td className="text-success">Active</td>
+                    : <td className="text-muted">Finished</td>}
+                  {(Date.parse(start_time) - Date.now()) > 0
+                    ? <Timer timeFrame={(Date.parse(new Date(start_time)) - Date.now())} />
+                    : ''}
                 </tr>
               ))}
             </tbody>

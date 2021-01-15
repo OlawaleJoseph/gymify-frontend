@@ -6,15 +6,17 @@
 
 .menuitem__link {
   width: 165px;
-  color: $text-color;
+  color: white;
 
   svg {
     margin-right: 10px;
-    color: $secondary-color;
+    color: white;
   }
 
-  &:hover {
+  &:hover,
+  &:hover svg {
     color: $secondary-color;
     font-weight: bolder;
+    text-decoration: none;
   }
 }
