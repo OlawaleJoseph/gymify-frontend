@@ -43,35 +43,39 @@ const Main = () => {
           </div>
         </section>
         <section className="mt-5">
-          <h5>Appointments</h5>
-          <table className="table">
-            <thead className="thead-light">
-              <tr>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-                <th scope="col">Duration</th>
-                <th scope="col">Status</th>
-                <th scope="col">Countdown</th>
-              </tr>
-            </thead>
-            <tbody>
-              {user.gym_sessions.length && user.gym_sessions.map(({
+          <h5>Recent Appointments</h5>
+          <ul className="main__appointments w-100">
+            <li className="listHeading">
+              <span className="py-4">Title</span>
+              <span className="py-4">Description</span>
+              <span className="py-4">Duration</span>
+              <span className="py-4">Status</span>
+              <span className="py-4">Countdown</span>
+            </li>
+            {user.gym_sessions.length
+            && user.gym_sessions
+              .slice()
+              .sort((a, b) => (
+                Date.parse(a.start_time) > Date.parse(b.start_time)))
+              .filter(item => Date.parse(item.start_time) > Date.now()).slice(0, 10)
+              .map(({
                 title, description, duration, id, start_time,
               }) => (
-                <tr key={id}>
-                  <td>{title}</td>
-                  <td>{description}</td>
-                  <td>{formatDurationOutput(duration)}</td>
+                <li key={id} className="listBody">
+                  <span className="py-3">{title}</span>
+                  <span className="py-3">{description}</span>
+                  <span className="py-3">{formatDurationOutput(duration)}</span>
                   {(Date.parse(start_time) - Date.now()) > 0
-                    ? <td className="text-success">Active</td>
-                    : <td className="text-muted">Finished</td>}
-                  {(Date.parse(start_time) - Date.now()) > 0
-                    ? <Timer timeFrame={(Date.parse(new Date(start_time)) - Date.now())} />
-                    : ''}
-                </tr>
+                    ? <span className="text-success py-3">Active</span>
+                    : <span className="text-muted py-3">Finished</span>}
+                  <span className="py-3">
+                    {(Date.parse(start_time) - Date.now()) > 0
+                      ? <Timer timeFrame={(Date.parse(new Date(start_time)) - Date.now())} />
+                      : ''}
+                  </span>
+                </li>
               ))}
-            </tbody>
-          </table>
+          </ul>
         </section>
       </div>
     );

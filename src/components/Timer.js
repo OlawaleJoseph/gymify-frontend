@@ -26,7 +26,7 @@ function Timer({ timeFrame }) {
   }, []);
 
   return (
-    <p className="timer">{time}</p>
+    <p className="timer mb-0">{time}</p>
   );
 }
 

@@ -14,7 +14,9 @@ export const makeGraphData = arr => {
   const currentMonth = todaysDate.getMonth();
   const monthlySessions = arr.filter(session => {
     const sessionDate = new Date(session.start_time);
-    return sessionDate.getFullYear() === currentYear && sessionDate.getMonth() === currentMonth;
+    return sessionDate.getFullYear() === currentYear
+    && sessionDate.getMonth() === currentMonth
+    && sessionDate.getDate() <= todaysDate.getDate();
   });
   return monthlySessions.map(({ duration }) => parseFloat((duration / 3600).toFixed(1)));
 };

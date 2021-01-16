@@ -1,5 +1,17 @@
-// .main__graphs {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-//   grid-template-rows: 1fr;
-// }
+.main__appointments {
+  display: table;
+  text-align: center;
+
+  li {
+    display: table-row;
+
+    span {
+      display: table-cell;
+    }
+  }
+}
+
+.listHeading {
+  background-color: #333;
+  color: #fff;
+}

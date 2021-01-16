@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { shallowWrapper } from '../../setupTests';
+import { shallowRenderWithoutProvider } from '../setup';
 import Homepage from '../../pages/Homepage';
 
 describe('Homepage', () => {
-  const page = shallowWrapper(Homepage);
+  const page = shallowRenderWithoutProvider(Homepage);
 
   test('Should render Homepage', () => {
     expect(page).toBeTruthy();

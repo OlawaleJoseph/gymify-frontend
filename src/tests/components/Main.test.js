@@ -7,6 +7,7 @@ describe('Main', () => {
     jest.mock('react-redux', () => ({
       useDispatch: jest.fn(),
     }));
+    window.HTMLCanvasElement.prototype.getContext = jest.fn();
   });
 
   const props = {
