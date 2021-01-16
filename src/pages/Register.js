@@ -2,14 +2,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, connect } from 'react-redux';
 import { yupResolver } from '@hookform/resolvers/yup';
 import FormContainer from '../containers/FormContainer';
 import Form from '../components/Form';
 import { authFail, authStart, authSuccess } from '../reducers/auth';
-import { storeHeaders } from '../utils/common';
+import { getHeaders, storeHeaders } from '../utils/common';
 import DefaultUserImage from '../assets/images/user.png';
 import '../scss/Register.scss';
 import { postRequest } from '../utils/api';
@@ -73,6 +73,9 @@ const schema = yup.object().shape({
 });
 
 export const Register = () => {
+  const headers = getHeaders();
+  if (headers && Object.keys(headers).length) return <Redirect to="/dashboard" />;
+
   const dispatch = useDispatch();
   const history = useHistory();
   const { handleSubmit, errors, register } = useForm({

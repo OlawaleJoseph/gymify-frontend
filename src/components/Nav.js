@@ -8,8 +8,8 @@ import '../scss/Nav.scss';
 const Nav = () => {
   const [loggedOut, setloggedOut] = useState(false);
   const dispatch = useDispatch();
-  const handleLogout = () => {
-    dispatch(signOut());
+  const handleLogout = async () => {
+    await dispatch(signOut());
     setloggedOut(true);
   };
   if (loggedOut) return (<Redirect to="/" />);
