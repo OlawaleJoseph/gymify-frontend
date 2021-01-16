@@ -15,12 +15,11 @@ const Main = () => {
   const { user } = useSelector(state => state.auth);
   if (user) {
     const graphData = makeGraphData(user.gym_sessions);
-    let title; let description; let id; let
-      start_time;
+    let title; let description; let start_time;
 
     if (user?.gym_sessions?.length) {
       ({
-        title, description, id, start_time,
+        title, description, start_time,
       } = getLatestSession(user.gym_sessions));
     }
 
@@ -35,7 +34,6 @@ const Main = () => {
                 <NextAppointment
                   title={title}
                   desc={description}
-                  id={id}
                   duration={(Date.parse(new Date(start_time)) - Date.now())}
                 />
               )
