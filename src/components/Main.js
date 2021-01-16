@@ -50,8 +50,7 @@ const Main = () => {
               <span className="py-4">Status</span>
               <span className="py-4">Countdown</span>
             </li>
-            {user.gym_sessions.length
-            && user.gym_sessions
+            {user?.gym_sessions
               .slice()
               .sort((a, b) => (
                 Date.parse(a.start_time) > Date.parse(b.start_time)))
@@ -79,7 +78,7 @@ const Main = () => {
     );
   }
 
-  return 'DAmn!!!!!';
+  return 'Loading...';
 };
 
 export default Main;

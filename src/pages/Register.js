@@ -112,6 +112,8 @@ export const Register = () => {
       const imgFile = await dataUrlToFile(DefaultUserImage, 'defaultImage');
       if (!image[0]) {
         userData.append('image', imgFile);
+      } else {
+        userData.append('image', image[0]);
       }
       dispatch(authStart());
 
