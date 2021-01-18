@@ -13,9 +13,9 @@ const Main = () => {
     dispatch(updateUser());
   }, []);
   const { user } = useSelector(state => state.auth);
+  let title; let description; let start_time;
   if (user) {
     const graphData = makeGraphData(user.gym_sessions);
-    let title; let description; let start_time;
 
     if (user?.gym_sessions?.length) {
       ({
@@ -44,11 +44,11 @@ const Main = () => {
           <h5>Recent Appointments</h5>
           <ul className="main__appointments w-100">
             <li className="listHeading">
-              <span className="py-4">Title</span>
-              <span className="py-4">Description</span>
-              <span className="py-4">Duration</span>
-              <span className="py-4">Status</span>
-              <span className="py-4">Countdown</span>
+              <span className="py-4 px-2">Title</span>
+              <span className="py-4 px-2">Description</span>
+              <span className="py-4 px-2">Duration</span>
+              <span className="py-4 px-2">Status</span>
+              <span className="py-4 px-2">Countdown</span>
             </li>
             {user?.gym_sessions
               .slice()

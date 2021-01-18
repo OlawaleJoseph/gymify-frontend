@@ -50,7 +50,8 @@
 @media (min-width: $breakpoint-tablet) {
   .sidebar {
     position: relative;
-    width: clamp(250px, 329px, 40%);
+    min-width: 329px;
+    max-width: 15%;
   }
 
   .sidebar__switch {

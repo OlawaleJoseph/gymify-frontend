@@ -64,15 +64,15 @@ const Trainer = () => {
           speciality=""
           username=""
         />
-        <div className="d-flex flex-column justify-content-evenly trainer_info font-weight-light">
+        <div className="d-flex flex-column justify-content-evenly trainer_info font-weight-light py-4">
           <div>
             <h1 className="text-capitalize font-weight-light">{`${trainer.last_name} ${trainer.first_name}`}</h1>
-            <h3 className="font-weight-light">{trainer.username}</h3>
             <h3 className="text-capitalize font-weight-light ">{trainer.speciality}</h3>
+            <h3 className="font-weight-light">{trainer.username}</h3>
             <h5 className="font-weight-light">{trainer.info}</h5>
           </div>
-          <div>
-            <p className="font-weight-light">{`Sessions sucessfully completed: ${trainer.gym_sessions.length}`}</p>
+          <div className="mt-4">
+            <p className="font-weight-light mb-1">{`Sessions sucessfully completed: ${trainer.gym_sessions.length}`}</p>
             <button type="button" onClick={handleShowModal} className="btn btn-primary btn lg">Book Appointment</button>
             <FormModal
               show={showModal}

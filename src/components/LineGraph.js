@@ -31,7 +31,7 @@ const LineChart = ({ dataArr }) => {
   return (
     <div className="lineGraph col-lg-6 flex-grow-1">
       <div className="header">
-        <h5 className="title">Monthly Progress</h5>
+        <h5 className="title">Progress</h5>
       </div>
       <Line className="graph" data={data} options={options} />
     </div>
