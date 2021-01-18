@@ -1,4 +1,4 @@
-export const baseUrl = 'http://localhost:3000/api/v1';
+export const baseUrl = 'https://gymify-backend.herokuapp.com/api/v1';
 
 export const signUpPath = '/auth';
 
