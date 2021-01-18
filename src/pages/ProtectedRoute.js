@@ -6,27 +6,30 @@ import Nav from '../components/Nav';
 import { getHeaders } from '../utils/common';
 import '../scss/Dashboard.scss';
 
-const Dashboard = ({ Component, url }) => {
+const ProtectedRoute = ({ Component, ...rest }) => {
   const headers = getHeaders();
   if (!headers || !Object.keys(headers).length) {
     return <Redirect to="login" />;
   }
   return (
-    <Route exact path={url}>
-      <div className="dashboard d-md-flex m-0">
-        <SideBar />
-        <div className="w-100 px-5 overflow-auto">
-          <Nav />
-          <Component />
+    <Route
+      {...rest}
+      render={() => (
+        <div className="dashboard d-md-flex m-0">
+          <SideBar />
+          <div className="w-100 px-5 overflow-auto">
+            <Nav />
+            <Component />
+          </div>
         </div>
-      </div>
-    </Route>
+      )}
+    />
   );
 };
 
-Dashboard.propTypes = {
-  url: Proptypes.string.isRequired,
+ProtectedRoute.propTypes = {
+  // url: Proptypes.string.isRequired,
   Component: Proptypes.func.isRequired,
 };
 
-export default Dashboard;
+export default ProtectedRoute;
