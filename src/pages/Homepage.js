@@ -6,7 +6,6 @@ import { getHeaders } from '../utils/common';
 const Homepage = () => {
   const headers = getHeaders();
   if (headers && Object.keys(headers).length) return <Redirect to="/dashboard" />;
-
   return (
     <div className="homepage">
       <nav className="d-flex px-5 justify-content-between align-items-center homepage__nav">

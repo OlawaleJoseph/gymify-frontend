@@ -1,340 +1,340 @@
-// import { fireEvent } from '@testing-library/react';
-// import { act } from 'react-dom/test-utils';
-// import Register from '../../pages/Register';
-// import { renderWrapper, getById, changeInputText } from '../setup';
+import { fireEvent } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
+import Register from '../../pages/Register';
+import { renderWrapper, getById, changeInputText } from '../setup';
 
-// describe('Sign up Page', () => {
-//   let errorMessage;
-//   describe('User Registration', () => {
-//     let container;
-//     let firstNameInput;
-//     let lastNameInput;
-//     let emailInput;
-//     let confirmPasswordInput;
-//     let passwordInput;
-//     let usernameInput;
-//     beforeEach(async () => {
-//       await act(async () => {
-//         ({ container } = await renderWrapper(Register));
-//       });
-//     });
-//     it('should validate presence of first name', async () => {
-//       firstNameInput = await getById(container, 'firstName');
-//       await changeInputText(firstNameInput);
+describe('Sign up Page', () => {
+  let errorMessage;
+  describe('User Registration', () => {
+    let container;
+    let firstNameInput;
+    let lastNameInput;
+    let emailInput;
+    let confirmPasswordInput;
+    let passwordInput;
+    let usernameInput;
+    beforeEach(async () => {
+      await act(async () => {
+        ({ container } = await renderWrapper(Register));
+      });
+    });
+    it('should validate presence of first name', async () => {
+      firstNameInput = await getById(container, 'firstName');
+      await changeInputText(firstNameInput);
 
-//       errorMessage = 'First Name is required';
+      errorMessage = 'First Name is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of first name', async () => {
-//       firstNameInput = await getById(container, 'firstName');
+    test('should validate length of first name', async () => {
+      firstNameInput = await getById(container, 'firstName');
 
-//       await changeInputText(firstNameInput, 'ab');
+      await changeInputText(firstNameInput, 'ab');
 
-//       errorMessage = 'First Name must have at least 3 characters';
+      errorMessage = 'First Name must have at least 3 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of last name', async () => {
-//       lastNameInput = await getById(container, 'lastName');
+    test('should validate presence of last name', async () => {
+      lastNameInput = await getById(container, 'lastName');
 
-//       await changeInputText(lastNameInput);
+      await changeInputText(lastNameInput);
 
-//       errorMessage = 'Last Name is required';
+      errorMessage = 'Last Name is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of last name', async () => {
-//       lastNameInput = await getById(container, 'lastName');
-//       await changeInputText(lastNameInput, 'ab');
+    test('should validate length of last name', async () => {
+      lastNameInput = await getById(container, 'lastName');
+      await changeInputText(lastNameInput, 'ab');
 
-//       errorMessage = 'Last Name must have at least 3 characters';
+      errorMessage = 'Last Name must have at least 3 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate email presence', async () => {
-//       emailInput = await getById(container, 'email');
-//       await changeInputText(emailInput);
+    test('should validate email presence', async () => {
+      emailInput = await getById(container, 'email');
+      await changeInputText(emailInput);
 
-//       errorMessage = 'Email is required';
+      errorMessage = 'Email is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should be a valid email', async () => {
-//       emailInput = await getById(container, 'email');
-//       await changeInputText(emailInput, 'email');
+    test('should be a valid email', async () => {
+      emailInput = await getById(container, 'email');
+      await changeInputText(emailInput, 'email');
 
-//       errorMessage = 'Invalid email';
+      errorMessage = 'Invalid email';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of Username', async () => {
-//       usernameInput = await getById(container, 'username');
+    test('should validate presence of Username', async () => {
+      usernameInput = await getById(container, 'username');
 
-//       await changeInputText(usernameInput);
+      await changeInputText(usernameInput);
 
-//       errorMessage = 'Username is required';
+      errorMessage = 'Username is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of Username', async () => {
-//       usernameInput = await getById(container, 'username');
-//       await changeInputText(usernameInput, 'ab');
+    test('should validate length of Username', async () => {
+      usernameInput = await getById(container, 'username');
+      await changeInputText(usernameInput, 'ab');
 
-//       errorMessage = 'Username must have at least 3 characters';
+      errorMessage = 'Username must have at least 3 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of password', async () => {
-//       passwordInput = await getById(container, 'password');
-//       await changeInputText(passwordInput, '');
+    test('should validate presence of password', async () => {
+      passwordInput = await getById(container, 'password');
+      await changeInputText(passwordInput, '');
 
-//       errorMessage = 'Password is required';
+      errorMessage = 'Password is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of password', async () => {
-//       passwordInput = await getById(container, 'password');
-//       await changeInputText(passwordInput, 'pass');
+    test('should validate length of password', async () => {
+      passwordInput = await getById(container, 'password');
+      await changeInputText(passwordInput, 'pass');
 
-//       errorMessage = 'Password must have at least 6 characters';
+      errorMessage = 'Password must have at least 6 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate password pattern', async () => {
-//       passwordInput = await getById(container, 'password');
-//       await changeInputText(passwordInput, 'password');
+    test('should validate password pattern', async () => {
+      passwordInput = await getById(container, 'password');
+      await changeInputText(passwordInput, 'password');
 
-//       errorMessage = 'Password must have at least one uppercase, lowercase, and digit';
+      errorMessage = 'Password must have at least one uppercase, lowercase, and digit';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of confirm password', async () => {
-//       confirmPasswordInput = await getById(container, 'confirmPassword');
-//       await changeInputText(confirmPasswordInput);
+    test('should validate presence of confirm password', async () => {
+      confirmPasswordInput = await getById(container, 'confirmPassword');
+      await changeInputText(confirmPasswordInput);
 
-//       errorMessage = 'Confirm password is required';
+      errorMessage = 'Confirm password is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate equality of password and confirm password', async () => {
-//       const passwordInput = getById(container, 'password');
-//       const confirmPasswordInput = getById(container, 'confirmPassword');
+    test('should validate equality of password and confirm password', async () => {
+      const passwordInput = getById(container, 'password');
+      const confirmPasswordInput = getById(container, 'confirmPassword');
 
-//       await act(() => {
-//         fireEvent.change(passwordInput, { target: { value: 'Password123' } });
-//       });
-//       await changeInputText(confirmPasswordInput, 'Password12');
+      await act(() => {
+        fireEvent.change(passwordInput, { target: { value: 'Password123' } });
+      });
+      await changeInputText(confirmPasswordInput, 'Password12');
 
-//       errorMessage = 'Passwords do not match';
+      errorMessage = 'Passwords do not match';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
-//   });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
+  });
 
-//   describe('User Registration', () => {
-//     let container;
-//     let firstNameInput;
-//     let lastNameInput;
-//     let emailInput;
-//     let confirmPasswordInput;
-//     let passwordInput;
-//     let usernameInput;
-//     let trainerInput;
-//     let specialityInput;
-//     let infoInput;
+  describe('User Registration', () => {
+    let container;
+    let firstNameInput;
+    let lastNameInput;
+    let emailInput;
+    let confirmPasswordInput;
+    let passwordInput;
+    let usernameInput;
+    let trainerInput;
+    let specialityInput;
+    let infoInput;
 
-//     beforeEach(async () => {
-//       await act(async () => {
-//         ({ container } = await renderWrapper(Register));
-//       });
+    beforeEach(async () => {
+      await act(async () => {
+        ({ container } = await renderWrapper(Register));
+      });
 
-//       trainerInput = getById(container, 'isTrainer');
-//     });
+      trainerInput = getById(container, 'isTrainer');
+    });
 
-//     it('should validate presence of first name', async () => {
-//       firstNameInput = await getById(container, 'firstName');
-//       await changeInputText(firstNameInput);
+    it('should validate presence of first name', async () => {
+      firstNameInput = await getById(container, 'firstName');
+      await changeInputText(firstNameInput);
 
-//       errorMessage = 'First Name is required';
+      errorMessage = 'First Name is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of first name', async () => {
-//       firstNameInput = await getById(container, 'firstName');
+    test('should validate length of first name', async () => {
+      firstNameInput = await getById(container, 'firstName');
 
-//       await changeInputText(firstNameInput, 'ab');
+      await changeInputText(firstNameInput, 'ab');
 
-//       errorMessage = 'First Name must have at least 3 characters';
+      errorMessage = 'First Name must have at least 3 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of last name', async () => {
-//       lastNameInput = await getById(container, 'lastName');
+    test('should validate presence of last name', async () => {
+      lastNameInput = await getById(container, 'lastName');
 
-//       await changeInputText(lastNameInput);
+      await changeInputText(lastNameInput);
 
-//       errorMessage = 'Last Name is required';
+      errorMessage = 'Last Name is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of last name', async () => {
-//       lastNameInput = await getById(container, 'lastName');
-//       await changeInputText(lastNameInput, 'ab');
+    test('should validate length of last name', async () => {
+      lastNameInput = await getById(container, 'lastName');
+      await changeInputText(lastNameInput, 'ab');
 
-//       errorMessage = 'Last Name must have at least 3 characters';
+      errorMessage = 'Last Name must have at least 3 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate email presence', async () => {
-//       emailInput = await getById(container, 'email');
-//       await changeInputText(emailInput);
+    test('should validate email presence', async () => {
+      emailInput = await getById(container, 'email');
+      await changeInputText(emailInput);
 
-//       errorMessage = 'Email is required';
+      errorMessage = 'Email is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should be a valid email', async () => {
-//       emailInput = await getById(container, 'email');
-//       await changeInputText(emailInput, 'email');
+    test('should be a valid email', async () => {
+      emailInput = await getById(container, 'email');
+      await changeInputText(emailInput, 'email');
 
-//       errorMessage = 'Invalid email';
+      errorMessage = 'Invalid email';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of Username', async () => {
-//       usernameInput = await getById(container, 'username');
+    test('should validate presence of Username', async () => {
+      usernameInput = await getById(container, 'username');
 
-//       await changeInputText(usernameInput);
+      await changeInputText(usernameInput);
 
-//       errorMessage = 'Username is required';
+      errorMessage = 'Username is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of Username', async () => {
-//       usernameInput = await getById(container, 'username');
-//       await changeInputText(usernameInput, 'ab');
+    test('should validate length of Username', async () => {
+      usernameInput = await getById(container, 'username');
+      await changeInputText(usernameInput, 'ab');
 
-//       errorMessage = 'Username must have at least 3 characters';
+      errorMessage = 'Username must have at least 3 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of password', async () => {
-//       passwordInput = await getById(container, 'password');
-//       await changeInputText(passwordInput, '');
+    test('should validate presence of password', async () => {
+      passwordInput = await getById(container, 'password');
+      await changeInputText(passwordInput, '');
 
-//       errorMessage = 'Password is required';
+      errorMessage = 'Password is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of password', async () => {
-//       passwordInput = await getById(container, 'password');
-//       await changeInputText(passwordInput, 'pass');
+    test('should validate length of password', async () => {
+      passwordInput = await getById(container, 'password');
+      await changeInputText(passwordInput, 'pass');
 
-//       errorMessage = 'Password must have at least 6 characters';
+      errorMessage = 'Password must have at least 6 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate password pattern', async () => {
-//       passwordInput = await getById(container, 'password');
-//       await changeInputText(passwordInput, 'password');
+    test('should validate password pattern', async () => {
+      passwordInput = await getById(container, 'password');
+      await changeInputText(passwordInput, 'password');
 
-//       errorMessage = 'Password must have at least one uppercase, lowercase, and digit';
+      errorMessage = 'Password must have at least one uppercase, lowercase, and digit';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of confirm password', async () => {
-//       confirmPasswordInput = await getById(container, 'confirmPassword');
-//       await changeInputText(confirmPasswordInput);
+    test('should validate presence of confirm password', async () => {
+      confirmPasswordInput = await getById(container, 'confirmPassword');
+      await changeInputText(confirmPasswordInput);
 
-//       errorMessage = 'Confirm password is required';
+      errorMessage = 'Confirm password is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate equality of password and confirm password', async () => {
-//       const passwordInput = getById(container, 'password');
-//       const confirmPasswordInput = getById(container, 'confirmPassword');
+    test('should validate equality of password and confirm password', async () => {
+      const passwordInput = getById(container, 'password');
+      const confirmPasswordInput = getById(container, 'confirmPassword');
 
-//       await act(() => {
-//         fireEvent.change(passwordInput, { target: { value: 'Password123' } });
-//       });
-//       await changeInputText(confirmPasswordInput, 'Password12');
+      await act(() => {
+        fireEvent.change(passwordInput, { target: { value: 'Password123' } });
+      });
+      await changeInputText(confirmPasswordInput, 'Password12');
 
-//       errorMessage = 'Passwords do not match';
+      errorMessage = 'Passwords do not match';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of speciality', async () => {
-//       await act(() => {
-//         fireEvent.click(trainerInput);
-//       });
-//       specialityInput = await getById(container, 'speciality');
-//       await changeInputText(specialityInput, '');
+    test('should validate presence of speciality', async () => {
+      await act(() => {
+        fireEvent.click(trainerInput);
+      });
+      specialityInput = await getById(container, 'speciality');
+      await changeInputText(specialityInput, '');
 
-//       errorMessage = 'Speciality is required';
+      errorMessage = 'Speciality is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of speciality', async () => {
-//       await act(() => {
-//         fireEvent.click(trainerInput);
-//       });
-//       specialityInput = await getById(container, 'speciality');
-//       await changeInputText(specialityInput, 'qa');
+    test('should validate length of speciality', async () => {
+      await act(() => {
+        fireEvent.click(trainerInput);
+      });
+      specialityInput = await getById(container, 'speciality');
+      await changeInputText(specialityInput, 'qa');
 
-//       errorMessage = 'Speciality must have at least 3 characters';
+      errorMessage = 'Speciality must have at least 3 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate presence of info', async () => {
-//       await act(() => {
-//         fireEvent.click(trainerInput);
-//       });
-//       infoInput = await getById(container, 'info');
-//       await changeInputText(infoInput, '');
+    test('should validate presence of info', async () => {
+      await act(() => {
+        fireEvent.click(trainerInput);
+      });
+      infoInput = await getById(container, 'info');
+      await changeInputText(infoInput, '');
 
-//       errorMessage = 'Info is required';
+      errorMessage = 'Info is required';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
 
-//     test('should validate length of info', async () => {
-//       await act(() => {
-//         fireEvent.click(trainerInput);
-//       });
-//       infoInput = await getById(container, 'info');
-//       await changeInputText(infoInput, 'qa');
+    test('should validate length of info', async () => {
+      await act(() => {
+        fireEvent.click(trainerInput);
+      });
+      infoInput = await getById(container, 'info');
+      await changeInputText(infoInput, 'qa');
 
-//       errorMessage = 'Info must have at least 3 characters';
+      errorMessage = 'Info must have at least 3 characters';
 
-//       expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
-//     });
-//   });
-// });
+      expect(container.innerHTML.includes(errorMessage)).toBeTruthy();
+    });
+  });
+});

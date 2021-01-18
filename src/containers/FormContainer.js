@@ -17,12 +17,12 @@ function FormContainer({ title, children }) {
           {title.toLowerCase() === 'register' ? (
             <div className="my-3 px-3">
               <span>Already have an account?</span>
-              <Link to="/sign_in">Login</Link>
+              <Link className="ml-2" to="/sign_in">Login</Link>
             </div>
           ) : (
             <div className="my-3 px-3">
               <span>Do not have an account?</span>
-              <Link to="/register">Register</Link>
+              <Link className="ml-2" to="/register">Register</Link>
             </div>
           )}
         </div>
