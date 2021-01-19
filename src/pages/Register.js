@@ -65,7 +65,7 @@ const schema = yup.object().shape({
     }),
 
   password: yup.string().required('Password is required').min(6, 'Password must have at least 6 characters').matches(
-    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,}$/,
     'Password must have at least one uppercase, lowercase, and digit',
   ),
 
