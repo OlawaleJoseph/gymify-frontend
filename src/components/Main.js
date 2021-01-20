@@ -56,10 +56,10 @@ const Main = () => {
                 Date.parse(a.start_time) > Date.parse(b.start_time)))
               .filter(item => Date.parse(item.start_time) > Date.now()).slice(0, 10)
               .map(({
-                title, description, duration, id, start_time,
+                description, duration, id, start_time, instructor,
               }) => (
                 <li key={id} className="listBody">
-                  <span className="py-3">{title}</span>
+                  <span className="py-3">{instructor.username}</span>
                   <span className="py-3">{description}</span>
                   <span className="py-3">{formatDurationOutput(duration)}</span>
                   {(Date.parse(start_time) - Date.now()) > 0
