@@ -44,7 +44,7 @@ const Main = () => {
           <h5>Recent Appointments</h5>
           <ul className="main__appointments w-100">
             <li className="listHeading">
-              <span className="py-4 px-2">Title</span>
+              <span className="py-4 px-2">Trainer</span>
               <span className="py-4 px-2">Description</span>
               <span className="py-4 px-2">Duration</span>
               <span className="py-4 px-2">Status</span>

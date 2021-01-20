@@ -13,13 +13,34 @@ const Trainer = () => {
   const [showModal, setShowModal] = useState(false);
   const history = useHistory();
   const id = useSelector(state => state.trainers.currentTrainerId);
+  const { user } = useSelector(state => state.auth);
   const timezone = timeZone();
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+
+  const checkDuplicate = (start_time, duration) => {
+    const duplicate = user?.gym_sessions.find(session => {
+      const currentSessionStartTime = Date.parse(session.start_time);
+      const currentSessionEndTime = Date.parse(session.start_time) + (1000 * session.duration);
+      const newSessionStartTime = Date.parse(start_time);
+      const newSessionEndTime = Date.parse(start_time) + (1000 * duration);
+
+      return (newSessionStartTime >= currentSessionStartTime
+      && newSessionStartTime <= currentSessionEndTime)
+      && (newSessionEndTime >= currentSessionStartTime
+      && newSessionEndTime <= currentSessionEndTime);
+    });
+    return duplicate;
+  };
+
   const handleFormSubmit = async ({
     date, goal, time, duration,
   }) => {
+    const appointmentClash = checkDuplicate(`${date} ${time}`, duration);
+    if (appointmentClash) {
+      return toast.error('You have an appointment booked for this time');
+    }
     const appointmentData = new FormData();
 
     appointmentData.append('start_time', `${date} ${time}`);
@@ -44,6 +65,7 @@ const Trainer = () => {
         toast.error('Something went wrong');
       }
     }
+    return true;
   };
 
   useEffect(() => {
